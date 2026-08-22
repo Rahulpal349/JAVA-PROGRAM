@@ -1,4 +1,4 @@
-package Day1;
+package day2;
 import java.util.Scanner;
 
 public class ATM {
@@ -7,7 +7,7 @@ public class ATM {
         Scanner sc = new Scanner(System.in);
 
         double balance = 10000;
-        int choice;
+        int option;
 
         while (true) {
 
@@ -17,16 +17,14 @@ public class ATM {
             System.out.println("3. Withdraw Money");
             System.out.println("4. Exit");
 
-            System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+            System.out.print("Enter your option: ");
+            option = sc.nextInt();
 
-            switch (choice) {
+            switch (option) {
 
-                case 1:
-                    System.out.println("Current Balance: ₹" + balance);
-                    break;
+                case 1 -> System.out.println("Current Balance: Rs." + balance);
 
-                case 2:
+                case 2 -> {
                     System.out.print("Enter deposit amount: Rs.");
                     double deposit = sc.nextDouble();
 
@@ -37,30 +35,32 @@ public class ATM {
                     } else {
                         System.out.println("Invalid amount! Deposit must be greater than 0.");
                     }
-                    break;
+                }
 
-                case 3:
+                case 3 -> {
                     System.out.print("Enter withdrawal amount: Rs.");
                     double withdraw = sc.nextDouble();
 
                     if (withdraw <= 0) {
                         System.out.println("Invalid amount! Withdrawal must be greater than 0.");
+
                     } else if (withdraw > balance) {
                         System.out.println("Insufficient balance!");
+
                     } else {
                         balance = balance - withdraw;
                         System.out.println("Withdrawal successful!");
                         System.out.println("Updated Balance: Rs." + balance);
                     }
-                    break;
+                }
 
-                case 4:
+                case 4 -> {
                     System.out.println("Thank you for using the ATM!");
                     sc.close();
                     return;
+                }
 
-                default:
-                    System.out.println("Invalid choice! Please select 1-4.");
+                default -> System.out.println("Invalid option! Please select 1-4.");
             }
         }
     }
