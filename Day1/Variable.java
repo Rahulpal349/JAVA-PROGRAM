@@ -6,6 +6,7 @@ public class Variable {
  String name = "Rahul";
  double salary = 45000.50;
  boolean isEmployed = true;
+ String name2 = "Abhi";
 
 System.out.println( "Age:" +age);
 System.out.println( "Name:" +name);
